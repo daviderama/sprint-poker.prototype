@@ -9,6 +9,7 @@ defmodule Poker.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the endpoint when the application starts
+      worker(Poker.UserRepo, [[name: :user_repo]]),
       supervisor(PokerWeb.Endpoint, []),
       # Start your own worker by calling: Poker.Worker.start_link(arg1, arg2, arg3)
       # worker(Poker.Worker, [arg1, arg2, arg3]),
